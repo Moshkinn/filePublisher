@@ -51,6 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FilePublisher.cs" />
+    <Compile Include="JsonsParse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JsonsParse.Designer.cs">
+      <DependentUpon>JsonsParse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
     <Compile Include="ScanForm.Designer.cs">
       <DependentUpon>ScanForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="JsonsParse.resx">
+      <DependentUpon>JsonsParse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -932,6 +932,23 @@ namespace BMFilePublisher
                 Process.Start(folderPath);
             }
         }
+
+        private void btnDeviceJsons_Click(object sender, EventArgs e)
+        {
+            JsonsParse jf = new JsonsParse();
+            if (jf.ShowDialog() == DialogResult.OK)
+            {
+                //foreach (var ip in jf.selectedList)
+                //{
+                    
+                    
+                //        List<string> row = new List<string>() { ip, "---", "---" };
+                //        lvIpList.Items.Add(new ListViewItem(row.ToArray()));
+                    
+                //}
+
+            }
+        }
     }
 
    

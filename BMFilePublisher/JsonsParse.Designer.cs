@@ -30,13 +30,14 @@
         {
             this.btnLoadFiles = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.btnToCsv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoadFiles
             // 
             this.btnLoadFiles.Location = new System.Drawing.Point(12, 70);
             this.btnLoadFiles.Name = "btnLoadFiles";
-            this.btnLoadFiles.Size = new System.Drawing.Size(115, 32);
+            this.btnLoadFiles.Size = new System.Drawing.Size(115, 36);
             this.btnLoadFiles.TabIndex = 3;
             this.btnLoadFiles.Text = "LoadFiles";
             this.btnLoadFiles.UseVisualStyleBackColor = true;
@@ -52,11 +53,22 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
             // 
+            // btnToCsv
+            // 
+            this.btnToCsv.Location = new System.Drawing.Point(13, 127);
+            this.btnToCsv.Name = "btnToCsv";
+            this.btnToCsv.Size = new System.Drawing.Size(114, 36);
+            this.btnToCsv.TabIndex = 4;
+            this.btnToCsv.Text = "to CSV";
+            this.btnToCsv.UseVisualStyleBackColor = true;
+            this.btnToCsv.Click += new System.EventHandler(this.btnToCsv_Click);
+            // 
             // JsonsParse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 456);
+            this.Controls.Add(this.btnToCsv);
             this.Controls.Add(this.btnLoadFiles);
             this.Controls.Add(this.listView1);
             this.Name = "JsonsParse";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button btnLoadFiles;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnToCsv;
     }
 }

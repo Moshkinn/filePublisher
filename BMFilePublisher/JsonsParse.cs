@@ -1,9 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -111,6 +113,44 @@ namespace BMFilePublisher
             // Perform the sort with these new sort options.
             this.listView1.Sort();
         }
+
+        private void btnToCsv_Click(object sender, EventArgs e)
+        {
+            List<RowCsv> rowsToCsv = new List<RowCsv>();
+            //listView1.GetItemAt
+            short index = 0;
+            Row row = new Row();
+            foreach (var item in listView1.Items)
+            {
+
+                // rowsToCsv.Add(new RowCsv(row));
+                //Console.WriteLine(item.ToString());
+                //listView1.Items[index].SubItems[0].ToString();
+                //for (int i = 0; i < 3; i++)
+                //{
+                // Console.WriteLine(listView1.Items[index].SubItems[i].ToString());
+                //row.
+                row.rowID = index;
+                row.FileName = listView1.Items[index].SubItems[0].Text;
+                row.DeviceName = listView1.Items[index].SubItems[1].Text;
+                row.DeviceType = listView1.Items[index].SubItems[2].Text;
+                row.Path = _path;
+                rowsToCsv.Add(new RowCsv(row));
+                //}
+
+                index++;
+
+            }
+
+            //bcRecipe.body.rows.ForEach((row) => { rowsToCsv.Add(new RowCsv(row)); });
+            string fileName = _format + ".csv";
+            using (var writer = new StreamWriter(fileName))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(rowsToCsv);
+            }
+
+        }
     }
     public class WizardInputFormat
     {
@@ -128,4 +168,41 @@ namespace BMFilePublisher
         public string DeviceType { get; set; } // was int
 
     }
+    public class RowCsv : Row
+    {
+        //public string HeaderName { get; set; } // ... name
+
+        //public String FileName { get; set; } 
+
+        //public String DeviceName { get; set; } // 
+        //public String DeviceType { get; set; } // device -> to EN_Device
+        public RowCsv(Row row) : base(row)
+        {
+           
+        }
+    }
+    public class Row
+    {
+        public short rowID { get; set; }
+        public String FileName { get; set; }
+
+        public String DeviceName { get; set; } // 
+        public String DeviceType { get; set; } // device -> to EN_Device
+        public String Path { get; set; } 
+
+        public Row()
+        {
+            //this.parameters = new List<Parameters>();
+        }
+
+        public Row(Row other)
+        {
+            this.rowID = other.rowID;
+            this.FileName = other.FileName;
+            this.DeviceName = other.DeviceName;
+            this.DeviceType = other.DeviceType;
+            this.Path = other.Path;
+        }
+    }
+
 }

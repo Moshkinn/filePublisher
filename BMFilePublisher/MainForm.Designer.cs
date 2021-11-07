@@ -76,7 +76,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(15, 471);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(153, 38);
             this.btnAdd.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.btnRemove.Enabled = false;
             this.btnRemove.Location = new System.Drawing.Point(176, 471);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(165, 38);
             this.btnRemove.TabIndex = 3;
@@ -132,7 +132,7 @@
             // btnDriverDataSource
             // 
             this.btnDriverDataSource.Location = new System.Drawing.Point(349, 513);
-            this.btnDriverDataSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDriverDataSource.Margin = new System.Windows.Forms.Padding(4);
             this.btnDriverDataSource.Name = "btnDriverDataSource";
             this.btnDriverDataSource.Size = new System.Drawing.Size(168, 39);
             this.btnDriverDataSource.TabIndex = 8;
@@ -143,7 +143,7 @@
             // btnWizardDataSource
             // 
             this.btnWizardDataSource.Location = new System.Drawing.Point(525, 513);
-            this.btnWizardDataSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWizardDataSource.Margin = new System.Windows.Forms.Padding(4);
             this.btnWizardDataSource.Name = "btnWizardDataSource";
             this.btnWizardDataSource.Size = new System.Drawing.Size(168, 39);
             this.btnWizardDataSource.TabIndex = 9;
@@ -181,7 +181,7 @@
             // 
             this.btnPublish.Enabled = false;
             this.btnPublish.Location = new System.Drawing.Point(935, 513);
-            this.btnPublish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPublish.Margin = new System.Windows.Forms.Padding(4);
             this.btnPublish.Name = "btnPublish";
             this.btnPublish.Size = new System.Drawing.Size(188, 39);
             this.btnPublish.TabIndex = 12;
@@ -202,7 +202,7 @@
             // tbUserName
             // 
             this.tbUserName.Location = new System.Drawing.Point(108, 75);
-            this.tbUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(193, 22);
             this.tbUserName.TabIndex = 14;
@@ -210,7 +210,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(108, 107);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(193, 22);
             this.tbPassword.TabIndex = 16;
@@ -239,7 +239,7 @@
             // tbDomain
             // 
             this.tbDomain.Location = new System.Drawing.Point(108, 43);
-            this.tbDomain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDomain.Margin = new System.Windows.Forms.Padding(4);
             this.tbDomain.Name = "tbDomain";
             this.tbDomain.Size = new System.Drawing.Size(193, 22);
             this.tbDomain.TabIndex = 22;
@@ -257,7 +257,7 @@
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(15, 560);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(1107, 22);
             this.progressBar.TabIndex = 23;
@@ -266,7 +266,7 @@
             // 
             this.lvLog.HideSelection = false;
             this.lvLog.Location = new System.Drawing.Point(349, 182);
-            this.lvLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvLog.Margin = new System.Windows.Forms.Padding(4);
             this.lvLog.Name = "lvLog";
             this.lvLog.Size = new System.Drawing.Size(772, 323);
             this.lvLog.TabIndex = 24;
@@ -277,7 +277,7 @@
             // 
             this.lvIpList.HideSelection = false;
             this.lvIpList.Location = new System.Drawing.Point(16, 182);
-            this.lvIpList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvIpList.Margin = new System.Windows.Forms.Padding(4);
             this.lvIpList.Name = "lvIpList";
             this.lvIpList.Size = new System.Drawing.Size(324, 281);
             this.lvIpList.TabIndex = 25;
@@ -296,7 +296,7 @@
             // btnRemoveAll
             // 
             this.btnRemoveAll.Location = new System.Drawing.Point(176, 517);
-            this.btnRemoveAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(165, 36);
             this.btnRemoveAll.TabIndex = 27;
@@ -307,7 +307,7 @@
             // btnScan
             // 
             this.btnScan.Location = new System.Drawing.Point(15, 517);
-            this.btnScan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnScan.Margin = new System.Windows.Forms.Padding(4);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(153, 36);
             this.btnScan.TabIndex = 26;
@@ -466,11 +466,11 @@
             // 
             // btnDeviceJsons
             // 
-            this.btnDeviceJsons.Location = new System.Drawing.Point(744, 513);
+            this.btnDeviceJsons.Location = new System.Drawing.Point(713, 512);
             this.btnDeviceJsons.Name = "btnDeviceJsons";
-            this.btnDeviceJsons.Size = new System.Drawing.Size(150, 39);
+            this.btnDeviceJsons.Size = new System.Drawing.Size(194, 39);
             this.btnDeviceJsons.TabIndex = 35;
-            this.btnDeviceJsons.Text = "DeviceJsons";
+            this.btnDeviceJsons.Text = "DeviceJsonsLocalFolder";
             this.btnDeviceJsons.UseVisualStyleBackColor = true;
             this.btnDeviceJsons.Click += new System.EventHandler(this.btnDeviceJsons_Click);
             // 
@@ -510,7 +510,7 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

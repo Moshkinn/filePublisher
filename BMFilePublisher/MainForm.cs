@@ -797,6 +797,33 @@ namespace BMFilePublisher
             }
 
         }
+        private void OpenDeviceJsonParser(string ip, string filePath, string format)
+        {
+            try
+            {
+                //NetworkCredential nc = new NetworkCredential(tbUserName.Text, tbPassword.Text, tbDomain.Text);
+                //FilePublisher fp = new FilePublisher(getFormData());
+
+                //if (!fp.OpenNetworkPath(ip, nc, path))
+                //{
+                //    throw new Exception(String.Format("Could not open {0}", ip));
+                //}
+              
+                string path = String.Format("\\\\{0}\\c$", ip);
+                path += @"\" + filePath;
+                
+                JsonsParse jf = new JsonsParse(path, format);
+                if (jf.ShowDialog() == DialogResult.OK)
+                {
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error open network directory");
+            }
+
+        }
 
         private void lvIpList_MouseClick(object sender, MouseEventArgs e)
         {
@@ -858,9 +885,11 @@ namespace BMFilePublisher
                     break;
                 case "Wizard Folder":
                     OpenRemotePath(rightClickIp, @"inetpub\wwwroot\data\wizardDevices");
+                    OpenDeviceJsonParser(rightClickIp, @"inetpub\wwwroot\data\wizardDevices", "WizardInputFormat");
                     break;
-                case "Driver Folder": 
+                case "Driver Folder":
                     OpenRemotePath(rightClickIp, @"BRC\Apps\DriverManager\DriversData");
+                    OpenDeviceJsonParser(rightClickIp, @"BRC\Apps\DriverManager\DriversData", "DriversDataFormat");
                     break;
                 case "Plugins Folder":
                     OpenRemotePath(rightClickIp, @"BRC\apps\BmUniRunnerSvc");

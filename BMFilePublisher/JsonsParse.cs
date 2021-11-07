@@ -17,10 +17,24 @@ namespace BMFilePublisher
         private ListViewColumnSorter lvwColumnSorter;
         public DirectoryInfo dir;
         public FileInfo[] fileList;
-        private static WizardInputFormat wizardInputs;
+        private static WizardInputFormat wizardInputsFormat;
+        private static DriversDataFormat driversDataFormat;
+        private string _format;
+        private string _path;
 
         public JsonsParse()
         {
+            _path ="./devices/";
+            InitializeComponent();
+            // Create an instance of a ListView column sorter and assign it
+            // to the ListView control.
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.listView1.ListViewItemSorter = lvwColumnSorter;
+        }
+        public JsonsParse(string path, string format)
+        {
+            _format = format;
+            _path = path;
             InitializeComponent();
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
@@ -30,16 +44,32 @@ namespace BMFilePublisher
 
         private void btnLoadFiles_Click(object sender, EventArgs e)
         {
-            dir = new DirectoryInfo(@"./devices/");//Assuming recipes is your Folder
-            fileList = dir.GetFiles("*.json"); //Getting Text files
+            dir = new DirectoryInfo(_path); //(@"./devices/");
+            fileList = dir.GetFiles("*.json"); //Getting files
             foreach (FileInfo file in fileList)
             {
-                using (StreamReader reader = new StreamReader(file.FullName))
+                List<string> row;
+                switch (_format)
                 {
-                    wizardInputs = JsonConvert.DeserializeObject<WizardInputFormat>(reader.ReadToEnd());
+                    case "DriversDataFormat":
+                        using (StreamReader reader = new StreamReader(file.FullName))
+                        {
+                            driversDataFormat = JsonConvert.DeserializeObject<DriversDataFormat>(reader.ReadToEnd());
+                        }
+                        row = new List<string>() { file.Name, driversDataFormat.DeviceName, driversDataFormat.DeviceType };
+                        listView1.Items.Add(new ListViewItem(row.ToArray()));
+                        break;
+                    case "WizardInputFormat":
+                        using (StreamReader reader = new StreamReader(file.FullName))
+                        {
+                            wizardInputsFormat = JsonConvert.DeserializeObject<WizardInputFormat>(reader.ReadToEnd());
+                        }
+                        row = new List<string>() { file.Name, wizardInputsFormat.DeviceName, wizardInputsFormat.DeviceType };
+                        listView1.Items.Add(new ListViewItem(row.ToArray()));
+                        break;
+                    default:
+                        break;
                 }
-                List<string> row = new List<string>() { file.Name, wizardInputs.DeviceName, wizardInputs.DeviceType };
-                listView1.Items.Add(new ListViewItem(row.ToArray()));
             }
         }
 
@@ -87,6 +117,14 @@ namespace BMFilePublisher
         [JsonProperty("deviceName")]
         public string DeviceName { get; set; }
         [JsonProperty("deviceType")]
+        public string DeviceType { get; set; } // was int
+
+    }
+    public class DriversDataFormat
+    {
+        [JsonProperty("deviceType")]
+        public string DeviceName { get; set; }
+        [JsonProperty("deviceTypeId")]
         public string DeviceType { get; set; } // was int
 
     }

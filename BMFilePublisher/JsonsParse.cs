@@ -122,14 +122,6 @@ namespace BMFilePublisher
             Row row = new Row();
             foreach (var item in listView1.Items)
             {
-
-                // rowsToCsv.Add(new RowCsv(row));
-                //Console.WriteLine(item.ToString());
-                //listView1.Items[index].SubItems[0].ToString();
-                //for (int i = 0; i < 3; i++)
-                //{
-                // Console.WriteLine(listView1.Items[index].SubItems[i].ToString());
-                //row.
                 row.rowID = index;
                 row.FileName = listView1.Items[index].SubItems[0].Text;
                 row.DeviceName = listView1.Items[index].SubItems[1].Text;
@@ -142,7 +134,6 @@ namespace BMFilePublisher
 
             }
 
-            //bcRecipe.body.rows.ForEach((row) => { rowsToCsv.Add(new RowCsv(row)); });
             string fileName = _format + ".csv";
             using (var writer = new StreamWriter(fileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -170,12 +161,6 @@ namespace BMFilePublisher
     }
     public class RowCsv : Row
     {
-        //public string HeaderName { get; set; } // ... name
-
-        //public String FileName { get; set; } 
-
-        //public String DeviceName { get; set; } // 
-        //public String DeviceType { get; set; } // device -> to EN_Device
         public RowCsv(Row row) : base(row)
         {
            

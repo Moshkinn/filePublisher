@@ -23,6 +23,7 @@ namespace BMFilePublisher
         private static DriversDataFormat driversDataFormat;
         private string _format;
         private string _path;
+        private instanceConfigFormat instanceConfig;
 
         public JsonsParse()
         {
@@ -141,6 +142,25 @@ namespace BMFilePublisher
                 csv.WriteRecords(rowsToCsv);
             }
 
+        }
+
+        private void btnInstanceConfig_Click(object sender, EventArgs e)
+        {
+            using (StreamReader reader = new StreamReader(_path)) //(file.FullName))
+            {
+                instanceConfig = JsonConvert.DeserializeObject<instanceConfigFormat>(reader.ReadToEnd());
+            }
+
+                foreach (var deviceType in instanceConfig.AllDevices)
+                {
+                    foreach (var deviceName in deviceType.Devices)
+                    {
+                        List<string> row = new List<string>() { _path, deviceName.DeviceName, deviceType.DeviceType };
+                        listView1.Items.Add(new ListViewItem(row.ToArray()));
+                    }
+
+                }
+            
         }
     }
     public class WizardInputFormat

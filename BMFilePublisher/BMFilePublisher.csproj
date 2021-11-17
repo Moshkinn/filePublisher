@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FilePublisher.cs" />
+    <Compile Include="instanceConfigFormat.cs" />
     <Compile Include="JsonsParse.cs">
       <SubType>Form</SubType>
     </Compile>

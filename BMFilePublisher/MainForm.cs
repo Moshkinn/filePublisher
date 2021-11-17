@@ -801,14 +801,6 @@ namespace BMFilePublisher
         {
             try
             {
-                //NetworkCredential nc = new NetworkCredential(tbUserName.Text, tbPassword.Text, tbDomain.Text);
-                //FilePublisher fp = new FilePublisher(getFormData());
-
-                //if (!fp.OpenNetworkPath(ip, nc, path))
-                //{
-                //    throw new Exception(String.Format("Could not open {0}", ip));
-                //}
-              
                 string path = String.Format("\\\\{0}\\c$", ip);
                 path += @"\" + filePath;
                 
@@ -879,6 +871,8 @@ namespace BMFilePublisher
             {
                 case "InstanceConfig Json":
                     OpenRemotePath(rightClickIp, @"BRC\Configuration\InstanceConfig.json");
+                    OpenDeviceJsonParser(rightClickIp, @"BRC\Configuration\InstanceConfig.json", "InstanceConfig");
+
                     break;
                 case "Setup Json":
                     OpenRemotePath(rightClickIp, @"BRC\Configuration\setup.json");

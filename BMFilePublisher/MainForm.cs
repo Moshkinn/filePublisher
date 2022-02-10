@@ -315,7 +315,7 @@ namespace BMFilePublisher
 
         private bool validateNewIp(string ip)
         {
-            if (!ValidateIPFormat(ip))
+            if (!ValidateIPFormat(ip) & ip != "127.0. 0.1")
             {
                 MessageBox.Show(String.Format("({0}) is not a valid IP", ip));
                 return false;
@@ -781,33 +781,45 @@ namespace BMFilePublisher
 
         private void OpenRemotePath(string ip, string path)
         {
-            try
+            if (ip != "127.0. 0.1")
             {
-                NetworkCredential nc = new NetworkCredential(tbUserName.Text, tbPassword.Text, tbDomain.Text);
-                FilePublisher fp = new FilePublisher(getFormData());
-                if (!fp.OpenNetworkPath(ip, nc, path))
+                try
                 {
-                    throw new Exception(String.Format("Could not open {0}", ip));
+                    NetworkCredential nc = new NetworkCredential(tbUserName.Text, tbPassword.Text, tbDomain.Text);
+                    FilePublisher fp = new FilePublisher(getFormData());
+                    if (!fp.OpenNetworkPath(ip, nc, path))
+                    {
+                        throw new Exception(String.Format("Could not open {0}", ip));
+                    }
+
                 }
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error open network directory");
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error open network directory");
-            }
-
         }
         private void OpenDeviceJsonParser(string ip, string filePath, string format)
         {
             try
             {
+                if (ip == "127.0.0.1")
+                {
+                    //C:\BRC\apps\DriverManager\DriversData
+                    JsonsParse jf = new JsonsParse(format);
+                    jf.ShowDialog();
+                }
+                else
+                {
                 string path = String.Format("\\\\{0}\\c$", ip);
                 path += @"\" + filePath;
                 
                 JsonsParse jf = new JsonsParse(path, format);
-                if (jf.ShowDialog() == DialogResult.OK)
-                {
+                    jf.ShowDialog();
                 }
+                //if (jf.ShowDialog() == DialogResult.OK)
+                //{
+                //}
 
             }
             catch (Exception ex)
@@ -961,15 +973,22 @@ namespace BMFilePublisher
             JsonsParse jf = new JsonsParse("DriversDataFormat");
             if (jf.ShowDialog() == DialogResult.OK)
             {
-                //foreach (var ip in jf.selectedList)
-                //{
-                    
-                    
-                //        List<string> row = new List<string>() { ip, "---", "---" };
-                //        lvIpList.Items.Add(new ListViewItem(row.ToArray()));
-                    
-                //}
+            }
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            JsonsParse jf = new JsonsParse("WizardInputFormat");
+            if (jf.ShowDialog() == DialogResult.OK)
+            {
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            JsonsParse jf = new JsonsParse("InstanceConfig");
+            if (jf.ShowDialog() == DialogResult.OK)
+            {
             }
         }
     }

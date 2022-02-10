@@ -70,6 +70,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblBackupFolder = new System.Windows.Forms.Label();
             this.btnDeviceJsons = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.IpMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,7 +136,7 @@
             this.btnDriverDataSource.Location = new System.Drawing.Point(349, 513);
             this.btnDriverDataSource.Margin = new System.Windows.Forms.Padding(4);
             this.btnDriverDataSource.Name = "btnDriverDataSource";
-            this.btnDriverDataSource.Size = new System.Drawing.Size(168, 39);
+            this.btnDriverDataSource.Size = new System.Drawing.Size(152, 39);
             this.btnDriverDataSource.TabIndex = 8;
             this.btnDriverDataSource.Text = "Select Driver Source";
             this.btnDriverDataSource.UseVisualStyleBackColor = true;
@@ -142,10 +144,10 @@
             // 
             // btnWizardDataSource
             // 
-            this.btnWizardDataSource.Location = new System.Drawing.Point(525, 513);
+            this.btnWizardDataSource.Location = new System.Drawing.Point(501, 513);
             this.btnWizardDataSource.Margin = new System.Windows.Forms.Padding(4);
             this.btnWizardDataSource.Name = "btnWizardDataSource";
-            this.btnWizardDataSource.Size = new System.Drawing.Size(168, 39);
+            this.btnWizardDataSource.Size = new System.Drawing.Size(163, 39);
             this.btnWizardDataSource.TabIndex = 9;
             this.btnWizardDataSource.Text = "Select Wizard Source";
             this.btnWizardDataSource.UseVisualStyleBackColor = true;
@@ -180,10 +182,10 @@
             // btnPublish
             // 
             this.btnPublish.Enabled = false;
-            this.btnPublish.Location = new System.Drawing.Point(935, 513);
+            this.btnPublish.Location = new System.Drawing.Point(664, 513);
             this.btnPublish.Margin = new System.Windows.Forms.Padding(4);
             this.btnPublish.Name = "btnPublish";
-            this.btnPublish.Size = new System.Drawing.Size(188, 39);
+            this.btnPublish.Size = new System.Drawing.Size(81, 39);
             this.btnPublish.TabIndex = 12;
             this.btnPublish.Text = "Publish";
             this.btnPublish.UseVisualStyleBackColor = true;
@@ -256,7 +258,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(15, 560);
+            this.progressBar.Location = new System.Drawing.Point(15, 586);
             this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(1107, 22);
@@ -437,6 +439,7 @@
             // 
             // mComment
             // 
+            this.mComment.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mComment.Name = "mComment";
             this.mComment.Size = new System.Drawing.Size(100, 27);
             this.mComment.Click += new System.EventHandler(this.mComment_Click);
@@ -466,19 +469,41 @@
             // 
             // btnDeviceJsons
             // 
-            this.btnDeviceJsons.Location = new System.Drawing.Point(713, 512);
+            this.btnDeviceJsons.Location = new System.Drawing.Point(799, 513);
             this.btnDeviceJsons.Name = "btnDeviceJsons";
-            this.btnDeviceJsons.Size = new System.Drawing.Size(194, 39);
+            this.btnDeviceJsons.Size = new System.Drawing.Size(88, 47);
             this.btnDeviceJsons.TabIndex = 35;
-            this.btnDeviceJsons.Text = "DeviceJsonsLocalFolder";
+            this.btnDeviceJsons.Text = "Drivers Local";
             this.btnDeviceJsons.UseVisualStyleBackColor = true;
             this.btnDeviceJsons.Click += new System.EventHandler(this.btnDeviceJsons_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(893, 512);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 47);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Wizard Local";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(994, 512);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 47);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "Instance config  Local";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 593);
+            this.ClientSize = new System.Drawing.Size(1143, 621);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDeviceJsons);
             this.Controls.Add(this.lblBackupFolder);
             this.Controls.Add(this.label11);
@@ -566,6 +591,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblBackupFolder;
         private System.Windows.Forms.Button btnDeviceJsons;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -28,7 +28,21 @@ namespace BMFilePublisher
         public JsonsParse(string format)
         {
             _format = format;
-            _path ="./devices/";
+            switch (_format)
+            {
+                case "DriversDataFormat":
+                    _path = @"C:\BRC\apps\DriverManager\DriversData";  //"./devices/";
+                    break;
+                case "WizardInputFormat":
+                    _path = @"C:\inetpub\wwwroot\data\wizardDevices";
+                    break;
+                case "InstanceConfig":
+                    _path = @"C:\BRC\configuration\InstanceConfig.json";
+                    break;
+                default:
+                    break;
+            }
+                      
             InitializeComponent();
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
@@ -47,6 +61,22 @@ namespace BMFilePublisher
         }
 
         private void btnLoadFiles_Click(object sender, EventArgs e)
+        {
+            LoadFiles();
+        }
+        private void LoadFiles()
+        {
+            if (_format == "InstanceConfig")
+            {
+                InstanceConfigParse();
+            }
+            else
+            {
+                JsonsFolderParse();
+            }
+            
+        }
+        private void JsonsFolderParse()
         {
             dir = new DirectoryInfo(_path); //(@"./devices/");
             fileList = dir.GetFiles("*.json"); //Getting files
@@ -88,6 +118,7 @@ namespace BMFilePublisher
             listView1.Columns.Add("deviceType(EN_Device)", 180);
 
             listView1.MultiSelect = false;
+            LoadFiles();
         }
 
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -136,7 +167,7 @@ namespace BMFilePublisher
 
             }
 
-            string fileName =  _format + ".csv"; //"c:/temp/parse/"+
+            string fileName = _format + ".csv"; //"c:/temp/parse/"+
             using (var writer = new StreamWriter(fileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
@@ -147,7 +178,11 @@ namespace BMFilePublisher
 
         private void btnInstanceConfig_Click(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(_path)) //(file.FullName))
+            InstanceConfigParse();
+        }
+        private void InstanceConfigParse()
+        {
+                using (StreamReader reader = new StreamReader(_path)) //(file.FullName))
             {
                 instanceConfig = JsonConvert.DeserializeObject<instanceConfigFormat>(reader.ReadToEnd());
             }
@@ -161,8 +196,8 @@ namespace BMFilePublisher
                     }
 
                 }
-            
-        }
+        
+            }
     }
     public class WizardInputFormat
     {

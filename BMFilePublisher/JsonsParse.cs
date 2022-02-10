@@ -25,8 +25,9 @@ namespace BMFilePublisher
         private string _path;
         private instanceConfigFormat instanceConfig;
 
-        public JsonsParse()
+        public JsonsParse(string format)
         {
+            _format = format;
             _path ="./devices/";
             InitializeComponent();
             // Create an instance of a ListView column sorter and assign it
@@ -135,7 +136,7 @@ namespace BMFilePublisher
 
             }
 
-            string fileName = _format + ".csv";
+            string fileName =  _format + ".csv"; //"c:/temp/parse/"+
             using (var writer = new StreamWriter(fileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {

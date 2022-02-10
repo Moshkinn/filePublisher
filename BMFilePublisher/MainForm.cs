@@ -958,7 +958,7 @@ namespace BMFilePublisher
 
         private void btnDeviceJsons_Click(object sender, EventArgs e)
         {
-            JsonsParse jf = new JsonsParse();
+            JsonsParse jf = new JsonsParse("DriversDataFormat");
             if (jf.ShowDialog() == DialogResult.OK)
             {
                 //foreach (var ip in jf.selectedList)

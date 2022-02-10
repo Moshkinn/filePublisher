@@ -46,10 +46,11 @@
             // 
             // listView1
             // 
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(161, 70);
+            this.listView1.Location = new System.Drawing.Point(161, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(725, 310);
+            this.listView1.Size = new System.Drawing.Size(854, 966);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
@@ -78,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 456);
+            this.ClientSize = new System.Drawing.Size(1027, 971);
             this.Controls.Add(this.btnInstanceConfig);
             this.Controls.Add(this.btnToCsv);
             this.Controls.Add(this.btnLoadFiles);

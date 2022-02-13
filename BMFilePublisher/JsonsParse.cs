@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -24,7 +25,28 @@ namespace BMFilePublisher
         private string _format;
         private string _path;
         private instanceConfigFormat instanceConfig;
+        private string cfgCsvFolder;
 
+        public bool ReadConfig()
+        {
+            try
+            {
+                this.cfgCsvFolder = System.Configuration.ConfigurationSettings.AppSettings["CsvFolder"];
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            if (cfgCsvFolder == null)
+            {
+                return false;
+            }
+            else
+            {
+                lblCsvFolder.Text = this.cfgCsvFolder;
+                return true;
+            }
+        }
         public JsonsParse(string format)
         {
             _format = format;
@@ -44,6 +66,7 @@ namespace BMFilePublisher
             }
                       
             InitializeComponent();
+            ReadConfig();
             // Create an instance of a ListView column sorter and assign it
             // to the ListView control.
             lvwColumnSorter = new ListViewColumnSorter();
@@ -167,7 +190,7 @@ namespace BMFilePublisher
 
             }
 
-            string fileName = _format + ".csv"; //"c:/temp/parse/"+
+            string fileName = cfgCsvFolder + "//" +_format + ".csv"; //"c:/temp/parse/"+
             using (var writer = new StreamWriter(fileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
@@ -198,6 +221,20 @@ namespace BMFilePublisher
                 }
         
             }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCsvFolder_Click(object sender, EventArgs e)
+        {
+            string folderPath = lblCsvFolder.Text;
+            if (Directory.Exists(folderPath))
+            {
+                Process.Start(folderPath);
+            }
+        }
     }
     public class WizardInputFormat
     {
